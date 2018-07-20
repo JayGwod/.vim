@@ -95,6 +95,3 @@ let g:ale_fixers = {
 			\	'autopep8','isort','yapf','remove_trailing_lines','trim_whitespace'],
  \  'markdown': ['prettier','remove_trailing_lines','trim_whitespace'],
  \}
-" 修改 ale 提示符使用 emoji 符号
-" let g:ale_sign_error = '✗'
-" let g:ale_sign_warning = '⚡'

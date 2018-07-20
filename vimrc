@@ -1,7 +1,7 @@
 " ----- Color Scheme -----
 set term=screen-256color
 colorscheme molokai                      " 默认配色方案
-f (has("termguicolors"))
+if (has("termguicolors"))
 	" set Vim-specific sequences for RGB colors
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" 
@@ -57,6 +57,8 @@ Plug 'iamcco/mathjax-support-for-mkdp'   " 预览数学公式
 Plug 'scrooloose/nerdtree'               " file system explorer
 Plug 'rking/ag.vim'                      " 使用 Ag 在 vim 里搜索内容
 Plug 'itchyny/lightline.vim'             " statusline/tabline plugin
+Plug 'mhinz/vim-startify'                " fancy start screen
+Plug 'w0rp/ale'                          " Asynchronous Lint Engine
 call plug#end()
 
 " ----- Options -----
@@ -87,4 +89,12 @@ let g:mkdp_auto_close = 0
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
-
+" 实现python格式或者markdown格式的自动调整
+let g:ale_fixers = {
+ \  'python': ['add_blank_lines_for_python_control_statements',
+			\	'autopep8','isort','yapf','remove_trailing_lines','trim_whitespace'],
+ \  'markdown': ['prettier','remove_trailing_lines','trim_whitespace'],
+ \}
+" 修改 ale 提示符使用 emoji 符号
+" let g:ale_sign_error = '✗'
+" let g:ale_sign_warning = '⚡'

@@ -59,6 +59,7 @@ Plug 'rking/ag.vim'                      " 使用 Ag 在 vim 里搜索内容
 Plug 'itchyny/lightline.vim'             " statusline/tabline plugin
 Plug 'mhinz/vim-startify'                " fancy start screen
 Plug 'w0rp/ale'                          " Asynchronous Lint Engine
+Plug 'jszakmeister/markdown2ctags'       " Generate ctags-compatible tags files
 call plug#end()
 
 " ----- Options -----
@@ -67,7 +68,7 @@ let g:markdown_enable_conceal = 1        " gabrielelana/vim-markdown
 " Add support for markdown files in tagbar.
 let g:tagbar_type_markdown = {
     \ 'ctagstype': 'markdown',
-    \ 'ctagsbin' : '~/.vim/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsbin' : '~/.vim/plugged/markdown2ctags/markdown2ctags.py',
     \ 'ctagsargs' : '-f - --sort=yes',
     \ 'kinds' : [
         \ 's:sections',

@@ -90,8 +90,12 @@ let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
 " 实现python格式或者markdown格式的自动调整
-let g:ale_fixers = {
- \  'python': ['add_blank_lines_for_python_control_statements',
-			\	'autopep8','isort','yapf','remove_trailing_lines','trim_whitespace'],
- \  'markdown': ['prettier','remove_trailing_lines','trim_whitespace'],
- \}
+" let g:ale_fixers = {
+"  \  'python': ['add_blank_lines_for_python_control_statements',
+" 			\	'autopep8','isort','yapf','remove_trailing_lines','trim_whitespace'],
+"  \  'markdown': ['prettier','remove_trailing_lines','trim_whitespace'],
+"  \}
+let g:ale_fixers = {} 
+let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['markdown'] = ['prettier']
+let g:ale_javascript_prettier_options = '--prose-wrap always'

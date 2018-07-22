@@ -59,6 +59,7 @@ Plug 'rking/ag.vim'                      " 使用 Ag 在 vim 里搜索内容
 Plug 'itchyny/lightline.vim'             " statusline/tabline plugin
 Plug 'mhinz/vim-startify'                " fancy start screen
 Plug 'w0rp/ale'                          " Asynchronous Lint Engine
+Plug 'mzlogin/vim-markdown-toc'          " Markdown 的文章目录生成和更新
 call plug#end()
 
 " ----- Options -----

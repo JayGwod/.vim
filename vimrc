@@ -8,7 +8,7 @@ if (has("termguicolors"))
 	set termguicolors                      " True Colors
 	colorscheme material-theme             " 更好的配色方案
 endif
-set background=dark
+set background=dark                      " light 为亮色方案
 syntax enable                            " 打开语法高亮
 
 " ----- Status Line -----
@@ -60,6 +60,8 @@ Plug 'itchyny/lightline.vim'             " statusline/tabline plugin
 Plug 'mhinz/vim-startify'                " fancy start screen
 Plug 'w0rp/ale'                          " Asynchronous Lint Engine
 Plug 'mzlogin/vim-markdown-toc'          " Markdown 的文章目录生成和更新
+Plug 'mattn/webapi-vim'                  " An Interface to WEB APIs
+Plug 'mattn/gist-vim'                    " a vimscript for creating gists
 call plug#end()
 
 " ----- Options -----
@@ -102,3 +104,7 @@ let g:ale_fixers = {
 " 	'never' - Do not wrap prose.
 " 	'preserve' - Wrap prose as-is. available in v1.9.0+
 let g:ale_javascript_prettier_options = '--prose-wrap always'
+" enable running ALEFix when files are saved
+let g:ale_fix_on_save = 1
+" change the browser
+let g:gist_browser_command = 'cmd.exe /C start %URL%'

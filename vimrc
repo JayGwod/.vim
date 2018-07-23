@@ -8,7 +8,7 @@ if (has("termguicolors"))
 	set termguicolors                      " True Colors
 	colorscheme material-theme             " 更好的配色方案
 endif
-set background=dark
+set background=dark                      " light 为亮色方案
 syntax enable                            " 打开语法高亮
 
 " ----- Status Line -----
@@ -59,6 +59,10 @@ Plug 'rking/ag.vim'                      " 使用 Ag 在 vim 里搜索内容
 Plug 'itchyny/lightline.vim'             " statusline/tabline plugin
 Plug 'mhinz/vim-startify'                " fancy start screen
 Plug 'w0rp/ale'                          " Asynchronous Lint Engine
+Plug 'mzlogin/vim-markdown-toc'          " Markdown 的文章目录生成和更新
+Plug 'mattn/webapi-vim'                  " An Interface to WEB APIs
+Plug 'mattn/gist-vim'                    " a vimscript for creating gists
+Plug 'airblade/vim-gitgutter'            " shows a git diff
 call plug#end()
 
 " ----- Options -----
@@ -90,12 +94,18 @@ let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
 " 实现python格式或者markdown格式的自动调整
-" let g:ale_fixers = {
-"  \  'python': ['add_blank_lines_for_python_control_statements',
-" 			\	'autopep8','isort','yapf','remove_trailing_lines','trim_whitespace'],
-"  \  'markdown': ['prettier','remove_trailing_lines','trim_whitespace'],
-"  \}
-let g:ale_fixers = {} 
-let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fixers['markdown'] = ['prettier']
+let g:ale_fixers = {
+ \  'python': ['add_blank_lines_for_python_control_statements',
+			\	'autopep8','isort','yapf','remove_trailing_lines','trim_whitespace'],
+ \  'markdown': ['prettier','remove_trailing_lines','trim_whitespace'],
+ \  'javascript': ['prettier'],
+ \}
+" prettier options:
+" 	'always' - Wrap prose if it exceeds the print width.
+" 	'never' - Do not wrap prose.
+" 	'preserve' - Wrap prose as-is. available in v1.9.0+
 let g:ale_javascript_prettier_options = '--prose-wrap always'
+" enable running ALEFix when files are saved
+let g:ale_fix_on_save = 1
+" change the browser
+let g:gist_browser_command = 'cmd.exe /C start %URL%'

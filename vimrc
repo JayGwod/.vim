@@ -100,6 +100,11 @@ let g:ale_fixers = {
  \  'markdown': ['prettier','remove_trailing_lines','trim_whitespace'],
  \  'javascript': ['prettier'],
  \}
+" configure linters
+let g:ale_linters = {
+\   'python': ['pylint'],
+\   'markdown': ['mdl'],
+\}
 " prettier options:
 " 	'always' - Wrap prose if it exceeds the print width.
 " 	'never' - Do not wrap prose.

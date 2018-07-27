@@ -112,8 +112,6 @@ tab 常用操作：
 
 ### 文件管理和查找
 
-- [Vundle](https://github.com/VundleVim/Vundle.vim): 插件管理
-
 - [junegunn/vim-plug](https://github.com/junegunn/vim-plug): 插件管理，速度很快
   。推荐使用
 

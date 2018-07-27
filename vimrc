@@ -63,6 +63,9 @@ Plug 'mzlogin/vim-markdown-toc'          " Markdown 的文章目录生成和更�
 Plug 'mattn/webapi-vim'                  " An Interface to WEB APIs
 Plug 'mattn/gist-vim'                    " a vimscript for creating gists
 Plug 'airblade/vim-gitgutter'            " shows a git diff
+Plug 'vim-pandoc/vim-pandoc'             " pandoc integration and utilities
+Plug 'vim-pandoc/vim-pandoc-syntax'      " pandoc markdown syntax
+Plug 'lervag/vimtex'                     " for editing LaTeX files
 call plug#end()
 
 " ----- Options -----

@@ -117,3 +117,9 @@ let g:ale_javascript_prettier_options = '--prose-wrap always'
 let g:ale_fix_on_save = 1
 " change the browser
 let g:gist_browser_command = 'cmd.exe /C start %URL%'
+" To enable pandoc functionality for markdown files while using  the markdown
+" filetype and syntax, use
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+" opt out of syntax file for markdown files
+" vim-pandoc-syntax 与 markdown linter 冲突
+let g:pandoc#filetypes#pandoc_markdown = 0

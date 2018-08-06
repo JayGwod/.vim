@@ -123,3 +123,5 @@ let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 " opt out of syntax file for markdown files
 " vim-pandoc-syntax 与 markdown linter 冲突
 let g:pandoc#filetypes#pandoc_markdown = 0
+" set gists to be private by default
+let g:gist_post_private = 1

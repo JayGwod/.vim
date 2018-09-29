@@ -108,6 +108,10 @@ let g:ale_linters = {
 \   'python': ['pylint'],
 \   'markdown': ['mdl'],
 \}
+" 如果你觉得默认的 ale 提示符不好看，我们可以修改 ale 提示符使用 emoji 符号，
+" 换成萌萌的 emoji 表情
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚡'
 " prettier options:
 " 	'always' - Wrap prose if it exceeds the print width.
 " 	'never' - Do not wrap prose.

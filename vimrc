@@ -1,12 +1,13 @@
 " ----- Color Scheme -----
-set term=screen-256color
 colorscheme molokai                      " 默认配色方案
 if (has("termguicolors"))
 	" set Vim-specific sequences for RGB colors
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" 
 	set termguicolors                      " True Colors
-	colorscheme material-theme             " 更好的配色方案
+	" 更好的配色方案
+	" colorscheme material-theme            
+	colorscheme solarized8_dark_flat
 endif
 set background=dark                      " light 为亮色方案
 syntax enable                            " 打开语法高亮

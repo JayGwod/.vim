@@ -71,6 +71,7 @@ Plug 'airblade/vim-gitgutter'            " shows a git diff
 Plug 'vim-pandoc/vim-pandoc'             " pandoc integration and utilities
 Plug 'vim-pandoc/vim-pandoc-syntax'      " pandoc markdown syntax
 Plug 'lervag/vimtex'                     " for editing LaTeX files
+Plug 'lyokha/vim-xkbswitch'              " automatic keyboard layout switching
 call plug#end()
 
 " ----- Options -----
@@ -134,3 +135,4 @@ let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#filetypes#pandoc_markdown = 0
 " set gists to be private by default
 let g:gist_post_private = 1
+let g:XkbSwitchEnabled = 1

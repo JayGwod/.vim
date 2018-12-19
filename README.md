@@ -30,7 +30,11 @@ brew install vim --with-lua --with-override-system-vi
 
 - 配色方案：[solarized8_dark_flat](https://github.com/lifepillar/vim-solarized8)
 - 打开句法高亮：`syntax enable`
-- 设置空格和制表符：
+- 设置空格和制表符
+- 设置自动缩进
+- 打开行号
+- 用tab在子文件夹中查找文件
+- 将大写锁定键更改为CTRL并使用CTRC C退出插入模式
 
 ## Markdown 的配置方案
 

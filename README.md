@@ -20,6 +20,18 @@ sudo apt update
 sudo apt install vim
 ```
 
+[MAC 下 VIM 的安装方法](https://www.zhihu.com/question/34113076/answer/112866522):
+
+```shell
+brew install vim --with-lua --with-override-system-vi
+```
+
+## VIM 的基本配置
+
+- 配色方案：[solarized8_dark_flat](https://github.com/lifepillar/vim-solarized8)
+- 打开句法高亮：`syntax enable`
+- 设置空格和制表符：
+
 ## Markdown 的配置方案
 
 Markdown 的语法采用：

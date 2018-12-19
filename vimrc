@@ -17,15 +17,19 @@ set laststatus=2                         " 显示状态行
 set noshowmode                           " get rid of -- INSERT --
 
 " ----- Tab & Spaces -----
-set shiftwidth=2                         " 设置空格
-set tabstop=2                            " 设置制表符
+set shiftwidth=2                         " 自动缩进所使用的空白长度
+set tabstop=2                            " number of visual spaces per TAB
+set softtabstop=2                        " number of spaces in tab when editing
+set expandtab                            " tabs are spaces
 set autoindent                           " 设置自动缩进
 " 解决插入模式下delete/backspce键失效问题
 set backspace=2
 
 " ----- Searching -----
 set number                               " 打开行号
-set hls is                               " highlight matches
+set is hls                               " highlight matches
+" press return to temporarily get out of the highlighted search
+:nnoremap <CR> :nohlsearch<CR><CR>
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
 set path+=**

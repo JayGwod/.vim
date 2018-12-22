@@ -62,6 +62,7 @@ Plug 'iamcco/mathjax-support-for-mkdp'   " 预览数学公式
 Plug 'scrooloose/nerdtree'               " file system explorer
 Plug 'rking/ag.vim'                      " 使用 Ag 在 vim 里搜索内容
 Plug 'itchyny/lightline.vim'             " statusline/tabline plugin
+Plug 'itchyny/vim-gitbranch'             " Provides the branch name
 Plug 'mhinz/vim-startify'                " fancy start screen
 Plug 'w0rp/ale'                          " Asynchronous Lint Engine
 Plug 'mzlogin/vim-markdown-toc'          " Markdown 的文章目录生成和更新
@@ -72,11 +73,13 @@ Plug 'vim-pandoc/vim-pandoc'             " pandoc integration and utilities
 Plug 'vim-pandoc/vim-pandoc-syntax'      " pandoc markdown syntax
 Plug 'lervag/vimtex'                     " for editing LaTeX files
 Plug 'lyokha/vim-xkbswitch'              " automatic keyboard layout switching
+Plug 'Yggdroot/indentLine'               " display the indention levels
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
 call plug#end()
 
 " ----- Options -----
 " enable conceal for italic, bold, inline-code and link text 
-let g:markdown_enable_conceal = 1        " gabrielelana/vim-markdown
+let g:markdown_enable_conceal = 0        " gabrielelana/vim-markdown
 " Add support for markdown files in tagbar.
 let g:tagbar_type_markdown = {
     \ 'ctagstype': 'markdown',
@@ -92,7 +95,10 @@ let g:tagbar_type_markdown = {
     \ },
     \ 'sort': 0,
 \ }
-let g:mkdp_path_to_chrome = "cmd.exe /C start" 
+" WSL 用户如果使用chrome
+" let g:mkdp_path_to_chrome = "cmd.exe /C start" 
+" 苹果 用户如果使用chrome
+let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
     " 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
     " 如果设置了该参数, g:mkdp_browserfunc 将被忽略
 let g:mkdp_auto_close = 0
@@ -101,6 +107,16 @@ let g:mkdp_auto_close = 0
 " statusline colorscheme
 let g:lightline = {
       \ 'colorscheme': 'one',
+      \ }
+" show git branch using lightline.vim, configure as follows.
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
       \ }
 " 实现python格式或者markdown格式的自动调整
 let g:ale_fixers = {
@@ -126,7 +142,7 @@ let g:ale_javascript_prettier_options = '--prose-wrap always'
 " enable running ALEFix when files are saved
 let g:ale_fix_on_save = 1
 " change the browser
-let g:gist_browser_command = 'cmd.exe /C start %URL%'
+" let g:gist_browser_command = 'cmd.exe /C start %URL%'
 " To enable pandoc functionality for markdown files while using  the markdown
 " filetype and syntax, use
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]

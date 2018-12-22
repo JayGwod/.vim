@@ -33,8 +33,8 @@ brew install vim --with-lua --with-override-system-vi
 - 设置空格和制表符
 - 设置自动缩进
 - 打开行号
-- 用tab在子文件夹中查找文件
-- 将大写锁定键更改为CTRL并使用CTRC C退出插入模式
+- 用 tab 在子文件夹中查找文件
+- 将大写锁定键更改为 CTRL 并使用 CTRC C 退出插入模式
 
 ## Markdown 的配置方案
 
@@ -86,7 +86,7 @@ Vim 本来也支持 Markdown 的语法高亮，但是做得还不够好。我使
 let g:mkdp_path_to_chrome="chrome"
 let g:mkdp_auto_close=0
 nmap <F7> <Plug>MarkdownPreview
-nmap <F8> <Plug>StopMarkdownPreview
+nmap <F6> <Plug>StopMarkdownPreview
 ```
 
 ### 笔记管理

@@ -40,16 +40,19 @@ set colorcolumn=81                       " 设置超过80长度提示
 
 " ----- Keyboard Shortcuts -----
 " Find the file in the NERDTree window
-nmap <F11> :NERDTreeFind<CR>
+" nmap <F11> :NERDTreeFind<CR>
 " F10 key will toggle the NERDTree window
-nmap <F10> :NERDTreeToggle<CR>
-set pastetoggle=<F9>                     " 按功能键<F9>进入粘贴模式
+nmap <F11> :NERDTreeToggle<CR>
+" 按功能键<F9>进入粘贴模式
+" set pastetoggle=<F9>
 " F8 key will toggle the Tagbar window
-nmap <F8> :TagbarToggle<CR>
+nmap <F10> :TagbarToggle<CR>
 " 在打开 markdown 文件后，使用该命令可以打开预览窗口
-nmap <F7> <Plug>MarkdownPreview
+nmap <F9> <Plug>MarkdownPreview
 " 关闭 markdown 预览窗口，并停止开启的服务进程
-nmap <F6> <Plug>StopMarkdownPreview
+nmap <F8> <Plug>StopMarkdownPreview
+" 用 <F12> 在当前窗口下面打开一个终端
+noremap <F12> :below term<cr>
 
 " ----- Plugin Management -----
 " using Vim-plug to install plugins

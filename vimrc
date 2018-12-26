@@ -38,6 +38,10 @@ set path+=**
 set spell spelllang=en,cjk               " cjk 同时针对中日两种文字的写法
 set colorcolumn=81                       " 设置超过80长度提示
 
+" ----- Split Layouts -----
+set splitbelow
+set splitright
+
 " ----- Keyboard Shortcuts -----
 " Find the file in the NERDTree window
 " nmap <F11> :NERDTreeFind<CR>
@@ -53,6 +57,17 @@ nmap <F9> <Plug>MarkdownPreview
 nmap <F8> <Plug>StopMarkdownPreview
 " 用 <F12> 在当前窗口下面打开一个终端
 noremap <F12> :below term<cr>
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" close run window in vim's python mode
+:nnoremap <C-z> <C-w>z
+" 使用 leader+w 在插入和normal模式下保存文件，我经常在 insert 模式下代替 Esc
+inoremap <leader>w <Esc>:w<cr>
+noremap <leader>w :w<cr>
+noremap <leader>p :Autoformat<cr>
 
 " ----- Plugin Management -----
 " using Vim-plug to install plugins
@@ -78,9 +93,10 @@ Plug 'lervag/vimtex'                     " for editing LaTeX files
 Plug 'lyokha/vim-xkbswitch'              " automatic keyboard layout switching
 Plug 'Yggdroot/indentLine'               " display the indention levels
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'aperezdc/vim-template'             " Simple templates plugin for Vim
 call plug#end()
 
-" ----- Options -----
+" ----- Plugin Options -----
 " enable conceal for italic, bold, inline-code and link text 
 let g:markdown_enable_conceal = 0        " gabrielelana/vim-markdown
 " Add support for markdown files in tagbar.
@@ -154,4 +170,22 @@ let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#filetypes#pandoc_markdown = 0
 " set gists to be private by default
 let g:gist_post_private = 1
+" 解决中文输入法切换的问题
 let g:XkbSwitchEnabled = 1
+" E-mail address of the current user.
+let g:email = "dejie.guo@gmail.com"
+" Current logged-in user name.
+let g:username = "GUO DEJIE"
+" Turn on the rope script
+let g:pymode_rope = 1
+let g:pymode_run_bind = '<leader>r'
+let g:pymode_breakpoint_bind = '<leader>b'
+let g:pymode_rope_show_doc_bind = '<leader>pd'
+" By default when you press *<C-C>g* on any object in your code you will be moved
+" to definition.
+let g:pymode_rope_goto_definition_bind = '<leader>g'
+" Organize imports sorts imports, too. It does that according to PEP8. Unused
+" imports will be dropped.
+let g:pymode_rope_organize_imports_bind = '<leader>po'
+" Keymap for rename method/function/class/variables under cursor
+let g:pymode_rope_rename_bind = '<leader>pr'

@@ -119,8 +119,7 @@ let g:tagbar_type_markdown = {
 if has("unix")
   " WSL 用户如果使用chrome
   let g:mkdp_path_to_chrome = "cmd.exe /C start" 
-  let s:uname = system("uname -s")
-  if s:uname == "Darwin"
+  if has('macunix')
     " Do Mac stuff here
     " 苹果 用户如果使用chrome
     let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"

@@ -116,12 +116,18 @@ let g:tagbar_type_markdown = {
     \ },
     \ 'sort': 0,
 \ }
-" WSL 用户如果使用chrome
-" let g:mkdp_path_to_chrome = "cmd.exe /C start" 
-" 苹果 用户如果使用chrome
-let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
-    " 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
-    " 如果设置了该参数, g:mkdp_browserfunc 将被忽略
+if has("unix")
+  " WSL 用户如果使用chrome
+  let g:mkdp_path_to_chrome = "cmd.exe /C start" 
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin"
+    " Do Mac stuff here
+    " 苹果 用户如果使用chrome
+    let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
+        " 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
+        " 如果设置了该参数, g:mkdp_browserfunc 将被忽略
+  endif
+endif
 let g:mkdp_auto_close = 0
     " 在切换 buffer 的时候自动关闭预览窗口，设置为 0 则在切换 buffer 的时候不
     " 自动关闭预览窗口

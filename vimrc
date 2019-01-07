@@ -1,6 +1,6 @@
 " ----- Color Scheme -----
 " extends the color scheme's background color to the whole terminal screen
-set t_ut=
+set term=screen-256color
 colorscheme molokai                      " 默认配色方案
 if (has("termguicolors"))
 	" set Vim-specific sequences for RGB colors

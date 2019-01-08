@@ -196,3 +196,4 @@ let g:pymode_rope_goto_definition_bind = '<leader>g'
 let g:pymode_rope_organize_imports_bind = '<leader>po'
 " Keymap for rename method/function/class/variables under cursor
 let g:pymode_rope_rename_bind = '<leader>pr'
+let g:pymode_python = 'python3'

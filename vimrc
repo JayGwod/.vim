@@ -96,6 +96,7 @@ Plug 'lyokha/vim-xkbswitch'              " automatic keyboard layout switching
 Plug 'Yggdroot/indentLine'               " display the indention levels
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'aperezdc/vim-template'             " Simple templates plugin for Vim
+Plug 'previm/previm'                     " Realtime preview by Vim.
 call plug#end()
 
 " ----- Plugin Options -----
@@ -118,17 +119,23 @@ let g:tagbar_type_markdown = {
 \ }
 if has("unix")
   " WSL 用户如果使用chrome
-  let g:mkdp_path_to_chrome = "cmd.exe /C start" 
   let g:gist_browser_command = 'cmd.exe /C start %URL%'
+  " let g:mkdp_path_to_chrome = "cmd.exe /C start"
+  let g:previm_open_cmd = "cmd.exe /C start"
   if has('macunix')
     " Do Mac stuff here
     " 苹果 用户如果使用chrome
-    let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
+    " let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
         " 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
         " 如果设置了该参数, g:mkdp_browserfunc 将被忽略
     let g:gist_browser_command = "open -a Google\\ Chrome"
+    let g:previm_open_cmd = "open -a Google\\ Chrome"
   endif
 endif
+augroup PrevimSettings
+  autocmd!
+  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 let g:mkdp_auto_close = 0
     " 在切换 buffer 的时候自动关闭预览窗口，设置为 0 则在切换 buffer 的时候不
     " 自动关闭预览窗口

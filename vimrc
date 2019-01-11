@@ -119,12 +119,14 @@ let g:tagbar_type_markdown = {
 if has("unix")
   " WSL 用户如果使用chrome
   let g:mkdp_path_to_chrome = "cmd.exe /C start" 
+  let g:gist_browser_command = 'cmd.exe /C start %URL%'
   if has('macunix')
     " Do Mac stuff here
     " 苹果 用户如果使用chrome
     let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
         " 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
         " 如果设置了该参数, g:mkdp_browserfunc 将被忽略
+    let g:gist_browser_command = "open -a Google\\ Chrome"
   endif
 endif
 let g:mkdp_auto_close = 0
@@ -167,8 +169,6 @@ let g:ale_sign_warning = '⚡'
 let g:ale_javascript_prettier_options = '--prose-wrap always'
 " enable running ALEFix when files are saved
 let g:ale_fix_on_save = 1
-" change the browser
-" let g:gist_browser_command = 'cmd.exe /C start %URL%'
 " To enable pandoc functionality for markdown files while using  the markdown
 " filetype and syntax, use
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]

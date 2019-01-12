@@ -117,7 +117,7 @@ let g:tagbar_type_markdown = {
 if has("unix")
   " WSL 用户如果使用chrome
   let g:gist_browser_command = 'cmd.exe /C start %URL%'
-  let g:previm_open_cmd = "wstart"
+  let g:previm_open_cmd = "ws"
   let g:previm_enable_realtime=1
   if has('macunix')
     " Do Mac stuff here

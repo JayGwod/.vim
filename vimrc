@@ -54,9 +54,7 @@ nmap <F11> :NERDTreeToggle<CR>
 " F8 key will toggle the Tagbar window
 nmap <F10> :TagbarToggle<CR>
 " 在打开 markdown 文件后，使用该命令可以打开预览窗口
-nmap <F9> <Plug>MarkdownPreview
-" 关闭 markdown 预览窗口，并停止开启的服务进程
-nmap <F8> <Plug>StopMarkdownPreview
+nmap <F9> :PrevimOpen<CR>
 " 用 <F12> 在当前窗口下面打开一个终端
 noremap <F12> :below term<cr>
 "split navigations
@@ -77,8 +75,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'gabrielelana/vim-markdown'         " Markdown 语法高亮
 Plug 'godlygeek/tabular'                 " Format tables automatically
 Plug 'majutsushi/tagbar'                 " outline viewer
-Plug 'iamcco/markdown-preview.vim'       " 实时通过浏览器预览 markdown 文件
-Plug 'iamcco/mathjax-support-for-mkdp'   " 预览数学公式
 Plug 'scrooloose/nerdtree'               " file system explorer
 Plug 'rking/ag.vim'                      " 使用 Ag 在 vim 里搜索内容
 Plug 'itchyny/lightline.vim'             " statusline/tabline plugin
@@ -97,6 +93,7 @@ Plug 'Yggdroot/indentLine'               " display the indention levels
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'aperezdc/vim-template'             " Simple templates plugin for Vim
 Plug 'previm/previm'                     " Realtime preview by Vim.
+Plug 'tyru/open-browser.vim'             " Open URI with your favorite browser
 call plug#end()
 
 " ----- Plugin Options -----
@@ -120,18 +117,18 @@ let g:tagbar_type_markdown = {
 if has("unix")
   " WSL 用户如果使用chrome
   let g:gist_browser_command = 'cmd.exe /C start %URL%'
-  " let g:mkdp_path_to_chrome = "cmd.exe /C start"
-  let g:previm_open_cmd = "cmd.exe /C start"
+  let g:previm_open_cmd = "wstart"
+  let g:previm_enable_realtime=1
   if has('macunix')
     " Do Mac stuff here
     " 苹果 用户如果使用chrome
-    " let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
-        " 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
-        " 如果设置了该参数, g:mkdp_browserfunc 将被忽略
     let g:gist_browser_command = "open -a Google\\ Chrome"
     let g:previm_open_cmd = "open -a Google\\ Chrome"
+    let g:netrw_browsex_viewer="open -a Google\\ Chrome"
   endif
 endif
+" In the case of .md, filetype becomes a modula2. If so, please describe in
+" .vimrc this setting
 augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown

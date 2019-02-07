@@ -47,6 +47,34 @@ Markdown 的语法采用：
 - [玩转 vim 之文件操作篇[视频]](https://zhuanlan.zhihu.com/p/33153561)
 - [玩转 vim 之分屏狂魔如何编辑多个文件[视频]](https://zhuanlan.zhihu.com/p/33710608)
 - [vim + git，还可以这么玩[视频]](https://zhuanlan.zhihu.com/p/36756099)
+- [Vimer 的心路历程--Python & Markdown](https://zhuanlan.zhihu.com/p/36900365)
+- [vim 撸码必备插件之 autoformat 与 ale[视频]](https://zhuanlan.zhihu.com/p/34428176)
+- [Vim 之代码异步检测插件 ALE -- 实时检查 verilog 等代码的正确性](https://segmentfault.com/a/1190000016405629)
+
+### 格式调整
+
+```vimscript
+let g:ale_fixers = {
+ \  'python': ['add_blank_lines_for_python_control_statements','autopep8','isort','yapf','remove_trailing_lines','trim_whitespace'],
+ \  'markdown': ['prettier','remove_trailing_lines','trim_whitespace'],
+ \}
+```
+
+通过如上配置后，就可以实现 python 格式或者 markdown 格式的自动调整（注意若没有反
+应，请查看有没有安装相应软件，比如 markdown 的 prettier，需要自己去官网把它安装
+了，ale 才会自动调用）。
+
+### 语法检查
+
+ale 的 linter 都要自己安装，还好系统一般都是有 gcc, python, gofmt 之类的。
+markdown 的 linter 需要额外安装：`gem install mdl`
+
+```vimscript
+" only enable these linters
+let g:ale_linters = {
+\    'markdown': ['mdl']
+\}
+```
 
 ### 语法高亮
 

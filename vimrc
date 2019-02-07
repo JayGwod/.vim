@@ -48,11 +48,11 @@ set splitright
 " Find the file in the NERDTree window
 " nmap <F11> :NERDTreeFind<CR>
 " F10 key will toggle the NERDTree window
-nmap <F11> :NERDTreeToggle<CR>
+nmap <F10> :NERDTreeToggle<CR>
 " 按功能键<F9>进入粘贴模式
 " set pastetoggle=<F9>
 " F8 key will toggle the Tagbar window
-nmap <F10> :TagbarToggle<CR>
+nmap <F11> :TagbarToggle<CR>
 " 在打开 markdown 文件后，使用该命令可以打开预览窗口
 nmap <F9> :PrevimOpen<CR>
 " 用 <F12> 在当前窗口下面打开一个终端

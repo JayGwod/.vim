@@ -57,6 +57,8 @@ nmap <F11> :TagbarToggle<CR>
 nmap <F9> :PrevimOpen<CR>
 " 用 <F12> 在当前窗口下面打开一个终端
 noremap <F12> :below term<cr>
+" 生成pdf文件
+nmap <F8> :Pandoc! pdf --toc -F pandoc-crossref -F pandoc-citeproc --pdf-engine=pdflatex<cr>
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

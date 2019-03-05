@@ -44,6 +44,9 @@ set colorcolumn=81                       " 设置超过80长度提示
 set splitbelow
 set splitright
 
+" ----- Conceal Modes -----
+set concealcursor=nc
+
 " ----- Keyboard Shortcuts -----
 " Find the file in the NERDTree window
 " nmap <F11> :NERDTreeFind<CR>
@@ -70,6 +73,9 @@ nnoremap <C-H> <C-W><C-H>
 inoremap <leader>w <Esc>:w<cr>
 noremap <leader>w :w<cr>
 noremap <leader>p :Autoformat<cr>
+" Quickly open/reload vim
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " ----- Plugin Management -----
 " using Vim-plug to install plugins
@@ -100,7 +106,7 @@ call plug#end()
 
 " ----- Plugin Options -----
 " enable conceal for italic, bold, inline-code and link text 
-let g:markdown_enable_conceal = 0        " gabrielelana/vim-markdown
+let g:markdown_enable_conceal = 1        " gabrielelana/vim-markdown
 " Add support for markdown files in tagbar.
 let g:tagbar_type_markdown = {
     \ 'ctagstype': 'markdown',

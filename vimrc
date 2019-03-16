@@ -45,7 +45,7 @@ set splitbelow
 set splitright
 
 " ----- Conceal Modes -----
-set concealcursor=nc
+set concealcursor=
 
 " ----- Keyboard Shortcuts -----
 " Find the file in the NERDTree window
@@ -61,7 +61,15 @@ nmap <F9> :PrevimOpen<CR>
 " 用 <F12> 在当前窗口下面打开一个终端
 noremap <F12> :below term<cr>
 " 生成pdf文件
-nmap <F8> :Pandoc! pdf --toc -F pandoc-crossref -F pandoc-citeproc --pdf-engine=pdflatex<cr>
+" 默认情况下，生成的 PDF 不含目录，同时各级标题不含编号，仅仅字体大小有变化，
+" 要给各个 section 加上编号，可以用 -N 选项；加上目录，可以使用 --toc 选项。
+" 使用默认设置生成的 PDF margin 太大，根据 Pandoc 官方
+" FAQ，可以使用下面的选项更改 margin：
+" -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm"
+nmap <F8> :Pandoc! pdf -F pandoc-crossref -F pandoc-citeproc
+      \ --number-sections --pdf-engine=xelatex
+      \ -V CJKmainfont:'Source Han Serif SC'
+      \ -V geometry:margin=1in<cr>
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

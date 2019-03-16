@@ -70,6 +70,8 @@ nmap <F8> :Pandoc! pdf -F pandoc-crossref -F pandoc-citeproc
       \ --number-sections --pdf-engine=xelatex
       \ -V CJKmainfont:'Source Han Serif SC'
       \ -V geometry:margin=1in<cr>
+nmap <F7> :Pandoc! -s -F pandoc-crossref -F pandoc-citeproc
+      \ --number-sections
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

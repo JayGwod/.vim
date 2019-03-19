@@ -57,7 +57,7 @@ nmap <F10> :NERDTreeToggle<CR>
 " F8 key will toggle the Tagbar window
 nmap <F11> :TagbarToggle<CR>
 " 在打开 markdown 文件后，使用该命令可以打开预览窗口
-nmap <F9> :PrevimOpen<CR>
+" nmap <F9> :PrevimOpen<CR>
 " 用 <F12> 在当前窗口下面打开一个终端
 noremap <F12> :below term<cr>
 " 生成pdf文件
@@ -67,11 +67,11 @@ noremap <F12> :below term<cr>
 " FAQ，可以使用下面的选项更改 margin：
 " -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm"
 nmap <F8> :Pandoc! pdf -F pandoc-crossref -F pandoc-citeproc
+      \ -V geometry:margin=1in<cr>
       \ --number-sections --pdf-engine=xelatex
       \ -V CJKmainfont:'Source Han Serif SC'
-      \ -V geometry:margin=1in<cr>
-nmap <F7> :Pandoc! -s -F pandoc-crossref -F pandoc-citeproc
-      \ --number-sections
+nmap <F9> :Pandoc! -s -F pandoc-crossref -F pandoc-citeproc 
+      \ --mathjax=https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML<cr>
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>

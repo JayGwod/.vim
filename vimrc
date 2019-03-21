@@ -86,6 +86,12 @@ noremap <leader>p :Autoformat<cr>
 " Quickly open/reload vim
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+" provide hjkl movements in Insert mode and Command-line mode via the <Alt>
+" modifier key
+noremap! <ESC>h <Left>
+noremap! <ESC>j <Down>
+noremap! <ESC>k <Up>
+noremap! <ESC>l <Right>
 
 " ----- Plugin Management -----
 " using Vim-plug to install plugins

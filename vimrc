@@ -68,8 +68,8 @@ noremap <F12> :below term<cr>
 " -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm"
 nmap <F8> :Pandoc! pdf -F pandoc-crossref -F pandoc-citeproc
       \ -V geometry:margin=1in<cr>
-      \ --number-sections --pdf-engine=xelatex
-      \ -V CJKmainfont:'Source Han Serif SC'
+      " \ --number-sections --pdf-engine=xelatex
+      " \ -V CJKmainfont:'Source Han Serif SC'
 nmap <F9> :Pandoc! -s -F pandoc-crossref -F pandoc-citeproc 
       \ --mathjax=https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML<cr>
 "split navigations

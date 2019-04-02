@@ -62,14 +62,14 @@ nmap <F11> :TagbarToggle<CR>
 noremap <F12> :below term<cr>
 " 生成pdf文件
 " 默认情况下，生成的 PDF 不含目录，同时各级标题不含编号，仅仅字体大小有变化，
-" 要给各个 section 加上编号，可以用 -N 选项；加上目录，可以使用 --toc 选项。
+" 要给各个 section 加上编号，可以用 --number-sections 选项；加上目录，可以使用 --toc 选项。
 " 使用默认设置生成的 PDF margin 太大，根据 Pandoc 官方
 " FAQ，可以使用下面的选项更改 margin：
 " -V geometry:"top=2cm, bottom=1.5cm, left=2cm, right=2cm"
 nmap <F8> :Pandoc! pdf -F pandoc-crossref -F pandoc-citeproc
-      \ -V geometry:margin=1in<cr>
-      " \ --number-sections --pdf-engine=xelatex
-      " \ -V CJKmainfont:'Source Han Serif SC'
+      \ -V geometry:margin=1in
+      \ --pdf-engine=xelatex
+      \ -V CJKmainfont:'Source Han Serif SC'<cr>
 nmap <F9> :Pandoc! -s -F pandoc-crossref -F pandoc-citeproc 
       \ --mathjax=https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML<cr>
 "split navigations

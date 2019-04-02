@@ -196,7 +196,7 @@ let g:ale_sign_warning = '⚡'
 " 	'preserve' - Wrap prose as-is. available in v1.9.0+
 let g:ale_javascript_prettier_options = '--prose-wrap always'
 " enable running ALEFix when files are saved
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 " To enable pandoc functionality for markdown files while using  the markdown
 " filetype and syntax, use
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
@@ -225,3 +225,4 @@ let g:pymode_rope_organize_imports_bind = '<leader>po'
 " Keymap for rename method/function/class/variables under cursor
 let g:pymode_rope_rename_bind = '<leader>pr'
 let g:pymode_python = 'python3'
+let g:XkbSwitchEnabled = 1

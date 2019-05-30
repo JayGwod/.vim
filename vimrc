@@ -1,3 +1,6 @@
+" ----- Encoding Scheme -----
+set enc=utf8
+
 " ----- Color Scheme -----
 " extends the color scheme's background color to the whole terminal screen
 set term=screen-256color
@@ -118,6 +121,7 @@ Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'aperezdc/vim-template'             " Simple templates plugin for Vim
 Plug 'previm/previm'                     " Realtime preview by Vim.
 Plug 'tyru/open-browser.vim'             " Open URI with your favorite browser
+Plug 'lervag/vimtex'                     " A modern plugin for editing LaTeX
 call plug#end()
 
 " ----- Plugin Options -----
@@ -226,3 +230,5 @@ let g:pymode_rope_organize_imports_bind = '<leader>po'
 let g:pymode_rope_rename_bind = '<leader>pr'
 let g:pymode_python = 'python3'
 let g:XkbSwitchEnabled = 1
+" prevent vim from detecting a file with the `tex` suffix as a |plaintex|.
+let g:tex_flavor = 'latex'

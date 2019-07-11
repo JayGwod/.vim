@@ -1,5 +1,7 @@
 " ----- Encoding Scheme -----
 set enc=utf8
+" 去掉BOM标记
+set nobomb
 
 " ----- Color Scheme -----
 " extends the color scheme's background color to the whole terminal screen

@@ -14,7 +14,7 @@ if (has("termguicolors"))
 	set termguicolors                      " True Colors
 	" 更好的配色方案
 	" colorscheme material-theme            
-	colorscheme solarized8_dark_flat
+	colorscheme solarized8_flat
 endif
 set background=dark                      " light 为亮色方案
 syntax enable                            " 打开语法高亮
@@ -124,6 +124,9 @@ Plug 'aperezdc/vim-template'             " Simple templates plugin for Vim
 Plug 'previm/previm'                     " Realtime preview by Vim.
 Plug 'tyru/open-browser.vim'             " Open URI with your favorite browser
 Plug 'lervag/vimtex'                     " A modern plugin for editing LaTeX
+Plug 'jiangmiao/auto-pairs'              " insert or delete brackets etc. in pair
+Plug 'tpope/vim-endwise'                 " wisely add 'end'
+Plug 'tpope/vim-ragtag'                  " ghetto HTML/XML mappings
 call plug#end()
 
 " ----- Plugin Options -----

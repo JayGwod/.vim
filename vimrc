@@ -97,6 +97,8 @@ noremap! <ESC>h <Left>
 noremap! <ESC>j <Down>
 noremap! <ESC>k <Up>
 noremap! <ESC>l <Right>
+" change pydocstring default keymapping
+nmap <silent> <ESC>l <Plug>(pydocstring)
 
 " ----- Plugin Management -----
 " using Vim-plug to install plugins
@@ -184,6 +186,25 @@ let g:lightline = {
       \   'gitbranch': 'gitbranch#name'
       \ },
       \ }
+" To enable pandoc functionality for markdown files while using  the markdown
+" filetype and syntax, use
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+" opt out of syntax file for markdown files
+" vim-pandoc-syntax 与 markdown linter 冲突
+let g:pandoc#filetypes#pandoc_markdown = 0
+" set gists to be private by default
+let g:gist_post_private = 1
+" 解决中文输入法切换的问题
+let g:XkbSwitchEnabled = 1
+" E-mail address of the current user.
+let g:email = "dejie.guo@gmail.com"
+" Current logged-in user name.
+let g:username = "GUO DEJIE"
+let g:XkbSwitchEnabled = 1
+" prevent vim from detecting a file with the `tex` suffix as a |plaintex|.
+let g:tex_flavor = 'latex'
+
+" ----- Code Checking -----
 " 实现python格式或者markdown格式的自动调整
 let g:ale_fixers = {
  \  'python': ['add_blank_lines_for_python_control_statements',
@@ -207,20 +228,11 @@ let g:ale_sign_warning = '⚡'
 let g:ale_javascript_prettier_options = '--prose-wrap always'
 " enable running ALEFix when files are saved
 let g:ale_fix_on_save = 0
-" To enable pandoc functionality for markdown files while using  the markdown
-" filetype and syntax, use
-let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-" opt out of syntax file for markdown files
-" vim-pandoc-syntax 与 markdown linter 冲突
-let g:pandoc#filetypes#pandoc_markdown = 0
-" set gists to be private by default
-let g:gist_post_private = 1
-" 解决中文输入法切换的问题
-let g:XkbSwitchEnabled = 1
-" E-mail address of the current user.
-let g:email = "dejie.guo@gmail.com"
-" Current logged-in user name.
-let g:username = "GUO DEJIE"
+
+" ----- Pymode Setting -----
+" Pymode检查代码太卡了，所以这里关掉了pymode的代码检查功能。插件Ale实现了代码的
+" 异步检查，这样在代码检测的时候不会影响到其它操作。
+let g:pymode_lint = 0
 " Turn on the rope script
 let g:pymode_rope = 1
 let g:pymode_run_bind = '<leader>r'
@@ -235,6 +247,3 @@ let g:pymode_rope_organize_imports_bind = '<leader>po'
 " Keymap for rename method/function/class/variables under cursor
 let g:pymode_rope_rename_bind = '<leader>pr'
 let g:pymode_python = 'python3'
-let g:XkbSwitchEnabled = 1
-" prevent vim from detecting a file with the `tex` suffix as a |plaintex|.
-let g:tex_flavor = 'latex'

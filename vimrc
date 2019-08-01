@@ -118,7 +118,6 @@ Plug 'mattn/gist-vim'                    " a vimscript for creating gists
 Plug 'airblade/vim-gitgutter'            " shows a git diff
 Plug 'vim-pandoc/vim-pandoc'             " pandoc integration and utilities
 Plug 'vim-pandoc/vim-pandoc-syntax'      " pandoc markdown syntax
-Plug 'lervag/vimtex'                     " for editing LaTeX files
 Plug 'lyokha/vim-xkbswitch'              " automatic keyboard layout switching
 Plug 'Yggdroot/indentLine'               " display the indention levels
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
@@ -129,6 +128,7 @@ Plug 'lervag/vimtex'                     " A modern plugin for editing LaTeX
 Plug 'jiangmiao/auto-pairs'              " insert or delete brackets etc. in pair
 Plug 'tpope/vim-endwise'                 " wisely add 'end'
 Plug 'tpope/vim-ragtag'                  " ghetto HTML/XML mappings
+Plug 'tpope/vim-surround'                " quoting/parenthesizing made simple
 Plug 'heavenshell/vim-pydocstring'       " Generate Python docstring
 call plug#end()
 

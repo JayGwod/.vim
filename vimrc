@@ -126,10 +126,12 @@ Plug 'previm/previm'                     " Realtime preview by Vim.
 Plug 'tyru/open-browser.vim'             " Open URI with your favorite browser
 Plug 'lervag/vimtex'                     " A modern plugin for editing LaTeX
 Plug 'jiangmiao/auto-pairs'              " insert or delete brackets etc. in pair
+Plug 'heavenshell/vim-pydocstring'       " Generate Python docstring
 Plug 'tpope/vim-endwise'                 " wisely add 'end'
 Plug 'tpope/vim-ragtag'                  " ghetto HTML/XML mappings
 Plug 'tpope/vim-surround'                " quoting/parenthesizing made simple
-Plug 'heavenshell/vim-pydocstring'       " Generate Python docstring
+Plug 'tpope/vim-repeat'                  " enable '.' supported plugin
+Plug 'tpope/vim-commentary'              " comment stuff out
 call plug#end()
 
 " ----- Plugin Options -----
@@ -138,7 +140,7 @@ let g:markdown_enable_conceal = 1        " gabrielelana/vim-markdown
 " Add support for markdown files in tagbar.
 let g:tagbar_type_markdown = {
     \ 'ctagstype': 'markdown',
-    \ 'ctagsbin' : '~/.vim/plugin/markdown2ctags.py',
+    \ 'ctagsbin' : 'markdown2ctags.py',
     \ 'ctagsargs' : '-f - --sort=yes',
     \ 'kinds' : [
         \ 's:sections',

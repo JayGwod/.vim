@@ -216,7 +216,7 @@ let g:ale_fixers = {
  \}
 " configure linters
 let g:ale_linters = {
-\   'python': ['pylint'],
+\   'python': ['pylint', 'autopep8'],
 \   'markdown': ['mdl'],
 \}
 " 如果你觉得默认的 ale 提示符不好看，我们可以修改 ale 提示符使用 emoji 符号，

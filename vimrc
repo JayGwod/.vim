@@ -54,15 +54,15 @@ set concealcursor=
 
 " ----- Keyboard Shortcuts -----
 " Find the file in the NERDTree window
-" nmap <F11> :NERDTreeFind<CR>
-" F10 key will toggle the NERDTree window
-nmap <F10> :NERDTreeToggle<CR>
+nmap <F5> :NERDTreeFind<CR>
+" F6 key will toggle the NERDTree window
+nmap <F6> :NERDTreeToggle<CR>
 " 按功能键<F9>进入粘贴模式
-" set pastetoggle=<F9>
-" F8 key will toggle the Tagbar window
+set pastetoggle=<F9>
+" <F10> run python code
+let g:pymode_run_bind = '<F10>'
+" F11 key will toggle the Tagbar window
 nmap <F11> :TagbarToggle<CR>
-" 在打开 markdown 文件后，使用该命令可以打开预览窗口
-" nmap <F9> :PrevimOpen<CR>
 " 用 <F12> 在当前窗口下面打开一个终端
 noremap <F12> :below term<cr>
 " 生成pdf文件
@@ -75,7 +75,7 @@ nmap <F8> :Pandoc! pdf -F pandoc-crossref -F pandoc-citeproc
       \ -V geometry:margin=1in
       \ --pdf-engine=xelatex
       \ -V CJKmainfont:'Source Han Serif SC'<cr>
-nmap <F9> :Pandoc! -s -F pandoc-crossref -F pandoc-citeproc 
+nmap <F7> :Pandoc! -s -F pandoc-crossref -F pandoc-citeproc 
       \ --mathjax=https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML<cr>
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -235,15 +235,14 @@ let g:ale_fix_on_save = 0
 let g:pymode_lint = 0
 " Turn on the rope script
 let g:pymode_rope = 1
-let g:pymode_run_bind = '<leader>r'
 let g:pymode_breakpoint_bind = '<leader>b'
-let g:pymode_rope_show_doc_bind = '<leader>pd'
+let g:pymode_rope_show_doc_bind = '<leader>rd'
 " By default when you press *<C-C>g* on any object in your code you will be moved
 " to definition.
 let g:pymode_rope_goto_definition_bind = '<leader>g'
 " Organize imports sorts imports, too. It does that according to PEP8. Unused
 " imports will be dropped.
-let g:pymode_rope_organize_imports_bind = '<leader>po'
+let g:pymode_rope_organize_imports_bind = '<leader>ro'
 " Keymap for rename method/function/class/variables under cursor
-let g:pymode_rope_rename_bind = '<leader>pr'
+let g:pymode_rope_rename_bind = '<leader>rr'
 let g:pymode_python = 'python3'

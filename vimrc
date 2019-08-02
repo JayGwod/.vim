@@ -85,7 +85,7 @@ nnoremap <C-H> <C-W><C-H>
 " 使用 leader+w 在插入和normal模式下保存文件，我经常在 insert 模式下代替 Esc
 inoremap <leader>w <Esc>:w<cr>
 noremap <leader>w :w<cr>
-noremap <leader>p :Autoformat<cr>
+noremap <leader>p :ALEFix<CR>
 " Quickly open/reload vim
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>

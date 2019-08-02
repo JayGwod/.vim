@@ -22,6 +22,7 @@ syntax enable                            " 打开语法高亮
 " ----- Status Line -----
 set laststatus=2                         " 显示状态行
 set noshowmode                           " get rid of -- INSERT --
+set showtabline=2                        " forces the tabline to always show
 
 " ----- Tab & Spaces -----
 set shiftwidth=2                         " 自动缩进所使用的空白长度
@@ -51,6 +52,12 @@ set splitright
 
 " ----- Conceal Modes -----
 set concealcursor=
+
+" ----- undo/redo -----
+" 在你的 vimrc 加入
+set undofile                             " Maintain undo history between sessions
+" 设置你的undo保存位置，你需要先 mkdir ~/.vim/undodir
+set undodir=~/.vim/undodir
 
 " ----- Keyboard Shortcuts -----
 " Find the file in the NERDTree window
@@ -110,6 +117,7 @@ Plug 'scrooloose/nerdtree'               " file system explorer
 Plug 'rking/ag.vim'                      " 使用 Ag 在 vim 里搜索内容
 Plug 'itchyny/lightline.vim'             " statusline/tabline plugin
 Plug 'itchyny/vim-gitbranch'             " Provides the branch name
+Plug 'mengelbrecht/lightline-bufferline' " display the list of buffers
 Plug 'mhinz/vim-startify'                " fancy start screen
 Plug 'w0rp/ale'                          " Asynchronous Lint Engine
 Plug 'mzlogin/vim-markdown-toc'          " Markdown 的文章目录生成和更新
@@ -132,6 +140,7 @@ Plug 'tpope/vim-ragtag'                  " ghetto HTML/XML mappings
 Plug 'tpope/vim-surround'                " quoting/parenthesizing made simple
 Plug 'tpope/vim-repeat'                  " enable '.' supported plugin
 Plug 'tpope/vim-commentary'              " comment stuff out
+Plug 'farmergreg/vim-lastplace'          " reopen files at last edit position
 call plug#end()
 
 " ----- Plugin Options -----
@@ -174,20 +183,6 @@ augroup END
 let g:mkdp_auto_close = 0
     " 在切换 buffer 的时候自动关闭预览窗口，设置为 0 则在切换 buffer 的时候不
     " 自动关闭预览窗口
-" statusline colorscheme
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ }
-" show git branch using lightline.vim, configure as follows.
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'gitbranch#name'
-      \ },
-      \ }
 " To enable pandoc functionality for markdown files while using  the markdown
 " filetype and syntax, use
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
@@ -205,6 +200,43 @@ let g:username = "GUO DEJIE"
 let g:XkbSwitchEnabled = 1
 " prevent vim from detecting a file with the `tex` suffix as a |plaintex|.
 let g:tex_flavor = 'latex'
+
+" ----- Statusline/Tabline Setting -----
+" show git branch using lightline.vim, configure as follows.
+let g:lightline = {
+  \ 'colorscheme': 'selenized_dark',
+  \ 'enable': {
+  \   'statusline': 1,
+  \   'tabline': 1
+  \ },
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'gitbranch#name'
+  \ }
+\ }
+" Bufferline Configuration
+let g:lightline#bufferline#min_buffer_count = 2
+let g:lightline#bufferline#unicode_symbols = 1
+let g:lightline#bufferline#show_number  = 2
+let g:lightline#bufferline#shorten_path = 0
+let g:lightline#bufferline#unnamed      = '[No Name]'
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+" Bufferline Integration
+let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " ----- Code Checking -----
 " 实现python格式或者markdown格式的自动调整

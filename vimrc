@@ -201,6 +201,14 @@ let g:XkbSwitchEnabled = 1
 " prevent vim from detecting a file with the `tex` suffix as a |plaintex|.
 let g:tex_flavor = 'latex'
 
+" ----- Open Browser Setting -----
+	" If it looks like URI, open an URI under cursor.
+	" Otherwise, search a word under cursor.
+nmap gx <Plug>(openbrowser-smart-search)
+	" If it looks like URI, open selected URI.
+	" Otherwise, search selected word.
+vmap gx <Plug>(openbrowser-smart-search)
+
 " ----- Statusline/Tabline Setting -----
 " show git branch using lightline.vim, configure as follows.
 let g:lightline = {

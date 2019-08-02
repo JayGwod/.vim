@@ -10,9 +10,9 @@
 要想发挥本配置方案的全部潜力需要使用 VIM 8 以上版本，否则将不能使用 VIM 的真彩色
 主题配色以及异步响应（ALE 插件需要用到）等机制。
 
-VIM 8 的安装方法
-（[Vim 8.0 Released! How to install it in Ubuntu 16.04](http://tipsonubuntu.com/2016/09/13/vim-8-0-released-install-ubuntu-16-04/)）
-：
+### VIM 8 的安装方法
+
+[Ubuntu下 VIM 的安装方法](http://tipsonubuntu.com/2016/09/13/vim-8-0-released-install-ubuntu-16-04/):
 
 ```shell
 sudo add-apt-repository ppa:jonathonf/vim
@@ -26,9 +26,20 @@ sudo apt install vim
 brew install vim --with-lua --with-override-system-vi
 ```
 
+### PIP 依赖安装
+
+这里安装的依赖主要与Python的语法检查有关，虚拟环境下PIP包需要重新安装：
+
+```shell
+pip install autopep8
+pip install isort
+pip install yapf
+pip install pylint
+```
+
 ## VIM 的基本配置
 
-- 配色方案：[solarized8_dark_flat](https://github.com/lifepillar/vim-solarized8)
+- 配色方案：[solarized8_flat](https://github.com/lifepillar/vim-solarized8)
 - 打开句法高亮：`syntax enable`
 - 设置空格和制表符
 - 设置自动缩进

@@ -59,6 +59,9 @@ set undofile                             " Maintain undo history between session
 " 设置你的undo保存位置，你需要先 mkdir ~/.vim/undodir
 set undodir=~/.vim/undodir
 
+" ----- Preview Setting -----
+set completeopt=menu                     " prevent the window from opening
+
 " ----- Keyboard Shortcuts -----
 " Find the file in the NERDTree window
 nmap <F5> :NERDTreeFind<CR>

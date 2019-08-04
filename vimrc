@@ -165,28 +165,12 @@ let g:tagbar_type_markdown = {
     \ },
     \ 'sort': 0,
 \ }
-if has("unix")
-  " WSL 用户如果使用chrome
-  let g:gist_browser_command = 'cmd.exe /C start %URL%'
-  let g:previm_open_cmd = "ws"
-  let g:previm_enable_realtime=1
-  if has('macunix')
-    " Do Mac stuff here
-    " 苹果 用户如果使用chrome
-    let g:gist_browser_command = "open -a Google\\ Chrome"
-    let g:previm_open_cmd = "open -a Google\\ Chrome"
-    let g:netrw_browsex_viewer="open -a Google\\ Chrome"
-  endif
-endif
 " In the case of .md, filetype becomes a modula2. If so, please describe in
 " .vimrc this setting
 augroup PrevimSettings
   autocmd!
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
-let g:mkdp_auto_close = 0
-    " 在切换 buffer 的时候自动关闭预览窗口，设置为 0 则在切换 buffer 的时候不
-    " 自动关闭预览窗口
 " To enable pandoc functionality for markdown files while using  the markdown
 " filetype and syntax, use
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
@@ -205,13 +189,26 @@ let g:XkbSwitchEnabled = 1
 " prevent vim from detecting a file with the `tex` suffix as a |plaintex|.
 let g:tex_flavor = 'latex'
 
-" ----- Open Browser Setting -----
+" ----- Browser Setting -----
 	" If it looks like URI, open an URI under cursor.
 	" Otherwise, search a word under cursor.
 nmap gx <Plug>(openbrowser-smart-search)
 	" If it looks like URI, open selected URI.
 	" Otherwise, search selected word.
 vmap gx <Plug>(openbrowser-smart-search)
+if has("unix")
+  " WSL 用户如果使用chrome
+  let g:gist_browser_command = 'cmd.exe /C start %URL%'
+  let g:previm_open_cmd = "ws"
+  let g:previm_enable_realtime=1
+  if has('macunix')
+    " Do Mac stuff here
+    " 苹果 用户如果使用chrome
+    let g:gist_browser_command = "open -a Google\\ Chrome"
+    let g:previm_open_cmd = "open -a Google\\ Chrome"
+    let g:netrw_browsex_viewer="open -a Google\\ Chrome"
+  endif
+endif
 
 " ----- Statusline/Tabline Setting -----
 " show git branch using lightline.vim, configure as follows.

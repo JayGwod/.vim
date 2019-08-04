@@ -140,6 +140,7 @@ Plug 'tpope/vim-ragtag'                  " ghetto HTML/XML mappings
 Plug 'tpope/vim-surround'                " quoting/parenthesizing made simple
 Plug 'tpope/vim-repeat'                  " enable '.' supported plugin
 Plug 'tpope/vim-commentary'              " comment stuff out
+Plug 'maximbaz/lightline-ale'            " ALE indicator for the lightline
 Plug 'farmergreg/vim-lastplace'          " reopen files at last edit position
 call plug#end()
 
@@ -219,7 +220,11 @@ let g:lightline = {
   \ },
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+  \   'right': [[ 'lineinfo' ],
+  \             [ 'percent' ],
+  \             [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex'  ],
+  \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'  ]]
   \ },
   \ 'component_function': {
   \   'gitbranch': 'gitbranch#name'
@@ -243,8 +248,22 @@ nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 " Bufferline Integration
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-let g:lightline.component_type   = {'buffers': 'tabsel'}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers',
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+let g:lightline.component_type   = {'buffers': 'tabsel',
+      \     'linter_checking': 'left',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'left',
+      \ }
+let g:lightline#ale#indicator_checking = "\uf110 "
+let g:lightline#ale#indicator_warnings = "\uf071 "
+let g:lightline#ale#indicator_errors = "\uf05e "
+let g:lightline#ale#indicator_ok = "\uf00c "
 
 " ----- Code Checking -----
 " 实现python格式或者markdown格式的自动调整

@@ -230,7 +230,7 @@ let g:lightline = {
   \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'  ]]
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'gitbranch#name'
+  \   'gitbranch': 'gitbranch#name',
   \ }
 \ }
 " Bufferline Configuration
@@ -283,8 +283,15 @@ let g:ale_linters = {
 \}
 " 如果你觉得默认的 ale 提示符不好看，我们可以修改 ale 提示符使用 emoji 符号，
 " 换成萌萌的 emoji 表情
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚡'
+let g:ale_sign_error = '😡'
+let g:ale_sign_warning = '😠'
+" ALE sets some background colors automatically for warnings and errors in the
+" sign gutter. These colors can be customised, or even removed completely:
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+" Disable auto-detection of virtualenvironments
+let g:ale_virtualenv_dir_names = []
+" Environment variable ${VIRTUAL_ENV} is always used"
 " prettier options:
 " 	'always' - Wrap prose if it exceeds the print width.
 " 	'never' - Do not wrap prose.
@@ -320,8 +327,6 @@ let g:pymode_folding = 0
 let g:pymode_rope_lookup_project = 0
 "项目修改后重新生成缓存
 let g:pymode_rope_regenerate_on_write = 1
-" 跳转到定义处，同时新建竖直窗口打开
-let g:pymode_rope_goto_definition_cmd = 'vnew'
 "开启python所有的语法高亮
 let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1

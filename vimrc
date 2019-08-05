@@ -60,9 +60,12 @@ set undofile                             " Maintain undo history between session
 set undodir=~/.vim/undodir
 
 " ----- Preview Setting -----
-set completeopt=menu                     " prevent the window from opening
+set completeopt=menu                     " prevent the pymode window from opening
 
-" ----- Keyboard Shortcuts -----
+" ----- Folding Setting -----
+set foldmethod=manual                    " 启用手工折叠
+
+"----- Keyboard Shortcuts -----
 " Find the file in the NERDTree window
 nmap <F5> :NERDTreeFind<CR>
 " F6 key will toggle the NERDTree window
@@ -307,3 +310,20 @@ let g:pymode_rope_organize_imports_bind = '<leader>ro'
 " Keymap for rename method/function/class/variables under cursor
 let g:pymode_rope_rename_bind = '<leader>rr'
 let g:pymode_python = 'python3'
+"自动检测并启用virtualenv
+let g:pymode_virtualenv = 1
+"使用PEP8风格的缩进
+let g:pymode_indent = 1
+"取消代码折叠
+let g:pymode_folding = 0
+"不在父目录下查找.ropeproject，能提升响应速度
+let g:pymode_rope_lookup_project = 0
+"项目修改后重新生成缓存
+let g:pymode_rope_regenerate_on_write = 1
+" 跳转到定义处，同时新建竖直窗口打开
+let g:pymode_rope_goto_definition_cmd = 'vnew'
+"开启python所有的语法高亮
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+"高亮缩进错误
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all

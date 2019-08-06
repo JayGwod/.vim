@@ -148,6 +148,7 @@ Plug 'tpope/vim-repeat'                  " enable '.' supported plugin
 Plug 'tpope/vim-commentary'              " comment stuff out
 Plug 'maximbaz/lightline-ale'            " ALE indicator for the lightline
 Plug 'farmergreg/vim-lastplace'          " reopen files at last edit position
+Plug 'Valloric/ListToggle'               " toggle the quickfix and location-list
 call plug#end()
 
 " ----- Plugin Options -----
@@ -230,7 +231,7 @@ let g:lightline = {
   \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'  ]]
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'gitbranch#name'
+  \   'gitbranch': 'gitbranch#name',
   \ }
 \ }
 " Bufferline Configuration
@@ -272,19 +273,31 @@ let g:lightline#ale#indicator_ok = "\uf00c "
 " 实现python格式或者markdown格式的自动调整
 let g:ale_fixers = {
  \  'python': ['add_blank_lines_for_python_control_statements',
-			\	'autopep8','isort','yapf','remove_trailing_lines','trim_whitespace'],
+			\	'autopep8','isort','yapf','remove_trailing_lines','trim_whitespace',
+      \ 'ale#fixers#generic_python#BreakUpLongLines'],
  \  'markdown': ['prettier','remove_trailing_lines','trim_whitespace'],
  \  'javascript': ['prettier'],
  \}
 " configure linters
 let g:ale_linters = {
-\   'python': ['pylint', 'autopep8'],
+\   'python': ['pylint'],
 \   'markdown': ['mdl'],
 \}
 " 如果你觉得默认的 ale 提示符不好看，我们可以修改 ale 提示符使用 emoji 符号，
 " 换成萌萌的 emoji 表情
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚡'
+let g:ale_sign_error = '😡'
+let g:ale_sign_warning = '😠'
+" ALE sets some background colors automatically for warnings and errors in the
+" sign gutter. These colors can be customised, or even removed completely:
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+"普通模式下，前往上一个错误或警告
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+# 前往下一个错误或警告
+nmap <silent> <leader>j <Plug>(ale_next_wrap)
+" Disable auto-detection of virtualenvironments
+let g:ale_virtualenv_dir_names = []
+" Environment variable ${VIRTUAL_ENV} is always used"
 " prettier options:
 " 	'always' - Wrap prose if it exceeds the print width.
 " 	'never' - Do not wrap prose.
@@ -319,7 +332,7 @@ let g:pymode_folding = 0
 "不在父目录下查找.ropeproject，能提升响应速度
 let g:pymode_rope_lookup_project = 0
 "项目修改后重新生成缓存
-let g:pymode_rope_regenerate_on_write = 1
+let g:pymode_rope_regenerate_on_write = 0
 "开启python所有的语法高亮
 let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1

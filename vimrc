@@ -293,7 +293,7 @@ highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 "普通模式下，前往上一个错误或警告
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
-# 前往下一个错误或警告
+" 前往下一个错误或警告
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
 " Disable auto-detection of virtualenvironments
 let g:ale_virtualenv_dir_names = []

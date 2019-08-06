@@ -320,8 +320,6 @@ let g:pymode_folding = 0
 let g:pymode_rope_lookup_project = 0
 "项目修改后重新生成缓存
 let g:pymode_rope_regenerate_on_write = 1
-" 跳转到定义处，同时新建竖直窗口打开
-let g:pymode_rope_goto_definition_cmd = 'vnew'
 "开启python所有的语法高亮
 let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1

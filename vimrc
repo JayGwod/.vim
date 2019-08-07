@@ -338,3 +338,4 @@ let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 "高亮缩进错误
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_rope_complete_on_dot = 0

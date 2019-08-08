@@ -53,14 +53,17 @@ set splitright
 " ----- Conceal Modes -----
 set concealcursor=
 
-" ----- undo/redo -----
+" ----- Undo/Redo -----
 " 在你的 vimrc 加入
 set undofile                             " Maintain undo history between sessions
 " 设置你的undo保存位置，你需要先 mkdir ~/.vim/undodir
 set undodir=~/.vim/undodir
 
-" ----- Preview Setting -----
+" ----- Window Setting -----
 set completeopt=menu                     " prevent the pymode window from opening
+
+" ----- Mouse Setting -----
+set mouse=a                              " 启用鼠标
 
 " ----- Folding Setting -----
 set foldmethod=manual                    " 启用手工折叠

@@ -36,6 +36,7 @@ set backspace=2
 " ----- Searching -----
 set number                               " 打开行号
 set is hls                               " highlight matches
+set cursorline                           " 高亮行
 " press return to temporarily get out of the highlighted search
 :nnoremap <CR> :nohlsearch<CR><CR>
 " Search down into subfolders
@@ -61,9 +62,6 @@ set undodir=~/.vim/undodir
 
 " ----- Window Setting -----
 set completeopt=menu                     " prevent the pymode window from opening
-
-" ----- Mouse Setting -----
-set mouse=a                              " 启用鼠标
 
 " ----- Folding Setting -----
 set foldmethod=manual                    " 启用手工折叠

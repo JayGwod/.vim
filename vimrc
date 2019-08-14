@@ -60,9 +60,6 @@ set undofile                             " Maintain undo history between session
 " 设置你的undo保存位置，你需要先 mkdir ~/.vim/undodir
 set undodir=~/.vim/undodir
 
-" ----- Window Setting -----
-set completeopt=menu                     " prevent the pymode window from opening
-
 " ----- Folding Setting -----
 set foldmethod=manual                    " 启用手工折叠
 
@@ -150,6 +147,14 @@ Plug 'tpope/vim-commentary'              " comment stuff out
 Plug 'maximbaz/lightline-ale'            " ALE indicator for the lightline
 Plug 'farmergreg/vim-lastplace'          " reopen files at last edit position
 Plug 'Valloric/ListToggle'               " toggle the quickfix and location-list
+Plug 'roxma/nvim-yarp'                   " Remote Plugin Framework for Neovim
+Plug 'roxma/vim-hug-neovim-rpc'          " a compatibility layer for neovim rpc
+Plug 'davidhalter/jedi-vim'              " autocompletion
+Plug 'ncm2/ncm2'
+" Fast python completion (use ncm2 if you want type info or snippet support)
+Plug 'HansPinckaers/ncm2-jedi'
+Plug 'ncm2/ncm2-bufword'                 " Words in buffer completion
+Plug 'ncm2/ncm2-path'                    " Filepath completion
 call plug#end()
 
 " ----- Plugin Options -----
@@ -190,9 +195,28 @@ let g:XkbSwitchEnabled = 1
 let g:email = "dejie.guo@gmail.com"
 " Current logged-in user name.
 let g:username = "GUO DEJIE"
-let g:XkbSwitchEnabled = 1
 " prevent vim from detecting a file with the `tex` suffix as a |plaintex|.
 let g:tex_flavor = 'latex'
+
+" ----- Autocompletion Setting -----
+" ncm2 settings
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=menuone,noselect,noinsert
+set shortmess+=c
+inoremap <c-c> <ESC>
+" make it fast
+let ncm2#popup_delay = 5
+let ncm2#complete_length = [[1, 1]]
+" Use new fuzzy based matches
+let g:ncm2#matcher = 'substrfuzzy'
+" Disable Jedi-vim autocompletion and enable call-signatures options
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "1"
 
 " ----- Browser Setting -----
 	" If it looks like URI, open an URI under cursor.
@@ -340,3 +364,4 @@ let g:pymode_syntax_all = 1
 "高亮缩进错误
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_completion = 0

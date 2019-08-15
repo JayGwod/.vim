@@ -158,6 +158,8 @@ Plug 'ncm2/ncm2-path'                    " Filepath completion
 call plug#end()
 
 " ----- Plugin Options -----
+
+" ----- Documentation Setting -----
 " enable conceal for italic, bold, inline-code and link text 
 let g:markdown_enable_conceal = 1        " gabrielelana/vim-markdown
 " Add support for markdown files in tagbar.
@@ -191,12 +193,14 @@ let g:pandoc#filetypes#pandoc_markdown = 0
 let g:gist_post_private = 1
 " 解决中文输入法切换的问题
 let g:XkbSwitchEnabled = 1
+" prevent vim from detecting a file with the `tex` suffix as a |plaintex|.
+let g:tex_flavor = 'latex'
+
+" ----- Template Setting -----
 " E-mail address of the current user.
 let g:email = "dejie.guo@gmail.com"
 " Current logged-in user name.
 let g:username = "GUO DEJIE"
-" prevent vim from detecting a file with the `tex` suffix as a |plaintex|.
-let g:tex_flavor = 'latex'
 
 " ----- Autocompletion Setting -----
 " ncm2 settings
@@ -222,8 +226,6 @@ let g:jedi#show_call_signatures = "1"
 	" If it looks like URI, open an URI under cursor.
 	" Otherwise, search a word under cursor.
 nmap gx <Plug>(openbrowser-smart-search)
-	" If it looks like URI, open selected URI.
-	" Otherwise, search selected word.
 vmap gx <Plug>(openbrowser-smart-search)
 if has("unix")
   " WSL 用户如果使用chrome

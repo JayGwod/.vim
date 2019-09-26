@@ -130,6 +130,7 @@ Plug 'mattn/gist-vim'                    " a vimscript for creating gists
 Plug 'airblade/vim-gitgutter'            " shows a git diff
 Plug 'vim-pandoc/vim-pandoc'             " pandoc integration and utilities
 Plug 'vim-pandoc/vim-pandoc-syntax'      " pandoc markdown syntax
+Plug 'vim-pandoc/vim-rmarkdown'          " Rmarkdown support for vim
 Plug 'lyokha/vim-xkbswitch'              " automatic keyboard layout switching
 Plug 'Yggdroot/indentLine'               " display the indention levels
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
@@ -155,6 +156,7 @@ Plug 'ncm2/ncm2'
 Plug 'HansPinckaers/ncm2-jedi'
 Plug 'ncm2/ncm2-bufword'                 " Words in buffer completion
 Plug 'ncm2/ncm2-path'                    " Filepath completion
+Plug 'goerz/jupytext.vim'                " edit ipynb files via jupytext
 call plug#end()
 
 " ----- Plugin Options -----
@@ -221,6 +223,12 @@ let g:jedi#smart_auto_mappings = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#completions_command = ""
 let g:jedi#show_call_signatures = "1"
+let g:jedi#goto_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#rename_command = "<leader>r"
 
 " ----- Browser Setting -----
 	" If it looks like URI, open an URI under cursor.

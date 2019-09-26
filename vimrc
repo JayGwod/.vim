@@ -108,6 +108,14 @@ noremap! <ESC>h <Left>
 noremap! <ESC>j <Down>
 noremap! <ESC>k <Up>
 noremap! <ESC>l <Right>
+" Alt + a 光标移当前行行首
+imap <ESC>a <ESC>I
+" Alt + f 光标移下一单词
+imap <ESC>f <ESC><Right>wi
+" Alt + b 光标移上一单词
+imap <ESC>b <ESC><Right>bi
+" ALT + E 光标移当前行行尾
+imap <ESC>e <ESC>A
 " change pydocstring default keymapping
 nmap <silent> <ESC>l <Plug>(pydocstring)
 

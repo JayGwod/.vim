@@ -10,6 +10,13 @@
 要想发挥本配置方案的全部潜力需要使用 VIM 8 以上版本，否则将不能使用 VIM 的真彩色
 主题配色以及异步响应（ALE 插件需要用到）等机制。
 
+### 颜色主题安装
+
+```shell
+git clone https://github.com/lifepillar/vim-solarized8.git \
+    ~/.vim/pack/themes/opt/solarized8
+```
+
 ### VIM 8 的安装方法
 
 [Ubuntu下 VIM 的安装方法](http://tipsonubuntu.com/2016/09/13/vim-8-0-released-install-ubuntu-16-04/):
@@ -28,7 +35,7 @@ brew install vim --with-lua --with-override-system-vi
 
 ### PIP 依赖安装
 
-这里安装的依赖主要与Python的语法检查有关，虚拟环境下PIP包需要重新安装：
+这里安装的依赖主要与Python的语法检查与自动补全有关，虚拟环境下PIP包需要重新安装：
 
 ```shell
 pip install autopep8

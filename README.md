@@ -35,6 +35,7 @@ pip install autopep8
 pip install isort
 pip install yapf
 pip install pylint
+pip install pynvim
 ```
 
 ## VIM 的基本配置

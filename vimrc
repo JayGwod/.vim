@@ -118,6 +118,8 @@ imap <ESC>b <ESC><Right>bi
 imap <ESC>e <ESC>A
 " change pydocstring default keymapping
 nmap <silent> <ESC>l <Plug>(pydocstring)
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 " ----- Plugin Management -----
 " using Vim-plug to install plugins

@@ -167,6 +167,7 @@ Plug 'HansPinckaers/ncm2-jedi'
 Plug 'ncm2/ncm2-bufword'                 " Words in buffer completion
 Plug 'ncm2/ncm2-path'                    " Filepath completion
 Plug 'goerz/jupytext.vim'                " edit ipynb files via jupytext
+Plug 'sirver/ultisnips'
 call plug#end()
 
 " ----- Plugin Options -----
@@ -205,8 +206,22 @@ let g:pandoc#filetypes#pandoc_markdown = 0
 let g:gist_post_private = 1
 " 解决中文输入法切换的问题
 let g:XkbSwitchEnabled = 1
+
+" ----- LaTex config -----
 " prevent vim from detecting a file with the `tex` suffix as a |plaintex|.
 let g:tex_flavor = 'latex'
+let g:vimtex_view_method='zathura'
+" let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+" 最后两行控制的是“隐藏”功能。
+" 开启了这个功能，除了你光标所在的那一行之外，
+" 文本里夹杂的LaTeX代码就都会隐藏或者替换成其他符号。
+
+" ----- Snips config -----
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " ----- Template Setting -----
 " E-mail address of the current user.

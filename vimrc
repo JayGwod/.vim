@@ -168,6 +168,9 @@ Plug 'ncm2/ncm2-bufword'                 " Words in buffer completion
 Plug 'ncm2/ncm2-path'                    " Filepath completion
 Plug 'goerz/jupytext.vim'                " edit ipynb files via jupytext
 Plug 'sirver/ultisnips'
+" JavaScript bundle for vim, this bundle provides syntax highlighting and
+" improved indentation.
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 " ----- Plugin Options -----
